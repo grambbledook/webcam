@@ -1,6 +1,8 @@
 package com.github.grambbledook.webcam
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -25,6 +27,13 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
+            }
+        }
+
+        findViewById<Button>(R.id.openWebcamButton).apply {
+            setOnClickListener {
+                val intent = Intent(this@MainActivity, WebcamActivity::class.java)
+                startActivity(intent)
             }
         }
     }
